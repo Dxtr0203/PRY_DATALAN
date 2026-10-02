@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Trabajos | DATALAN{% endblock %}
+{% block content %}<div class="app">{% include 'sidebar.html' %}<main class="main">{% include 'navbar.html' %}<section class="content">
+<div class="heading"><div><p class="eyebrow">Operacion tecnica</p><h1>Trabajos</h1><p class="subtitle">Seguimiento de instalaciones, retiros y trabajos eventuales.</p></div></div>
+<nav class="admin-tabs" aria-label="Filtrar trabajos"><a class="admin-tab {% if job_filter == 'TODOS' %}active{% endif %}" href="?tipo=TODOS">TODOS</a><a class="admin-tab {% if job_filter == 'INSTALACIONES' %}active{% endif %}" href="?tipo=INSTALACIONES">INSTALACIONES</a><a class="admin-tab {% if job_filter == 'RETIROS' %}active{% endif %}" href="?tipo=RETIROS">RETIROS</a><a class="admin-tab {% if job_filter == 'EVENTUALES' %}active{% endif %}" href="?tipo=EVENTUALES">EVENTUALES</a></nav>
+<section class="job-grid">{% for item in jobs %}<article class="job-card"><div class="job-card-top"><span class="cite">{{ item.cite }}</span><span class="status-pill {% if item.status == 'FINALIZADA' %}success{% else %}process{% endif %}">{{ item.status }}</span></div><h2>{{ item.type }}</h2><p>{{ item.applicant }}</p><dl><div><dt>Responsable</dt><dd>{{ item.assignment.leader|default:'Sin asignar' }}</dd></div><div><dt>Programado</dt><dd>{{ item.assignment.date|default:'Pendiente' }}</dd></div></dl></article>{% empty %}<div class="panel empty-state">No hay trabajos para este filtro.</div>{% endfor %}</section>
+</section></main></div>{% endblock %}

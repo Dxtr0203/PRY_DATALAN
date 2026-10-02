@@ -1,0 +1,8 @@
+<aside class="sidebar" id="sidebar">
+    <a class="brand" href="{{ role.home }}"><span class="brand-mark">D</span><span>DATALAN</span></a>
+    <div class="sidebar-label">Administración</div>
+    <nav class="side-nav" aria-label="Navegación principal">
+        {% for item in nav_items %}<div class="side-nav-item"><a class="side-link {% if item.active %}active{% endif %}" href="{{ item.url }}"><span class="side-icon">{{ item.icon }}</span><span>{{ item.label }}</span>{% if item.children %}<span class="side-chevron">{% if item.expanded %}⌄{% else %}›{% endif %}</span>{% endif %}</a>{% if item.children and item.expanded %}<div class="side-subnav">{% for child in item.children %}<a class="side-sublink {% if child.active %}active{% endif %}" href="{{ child.url }}"><span class="side-subicon">{{ child.icon }}</span><span>{{ child.label }}</span></a>{% endfor %}</div>{% endif %}</div>{% endfor %}
+    </nav>
+    <div class="sidebar-footer"><div class="user-mini"><span class="avatar">{{ current_user.full_name|slice:':2'|upper }}</span><span><b>{{ current_user.full_name }}</b><small>{{ role.label }}</small></span></div><a class="logout-link" href="{% url 'logout' %}">Salir <span>↗</span></a></div>
+</aside>

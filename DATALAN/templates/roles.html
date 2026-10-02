@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Roles y accesos | DATALAN{% endblock %}
+{% block content %}<div class="app">{% include 'sidebar.html' %}<main class="main">{% include 'navbar.html' %}<section class="content">
+<div class="heading"><div><p class="eyebrow">Seguridad y permisos</p><h1>Roles / Accesos</h1><p class="subtitle">Activa o desactiva el acceso a cada sección por cargo.</p></div></div>
+<div class="role-grid">{% for role_card in role_cards %}<form class="role-card permission-card" method="post">{% csrf_token %}<input type="hidden" name="role" value="{{ role_card.key }}"><div class="role-card-heading"><div><h3>{{ role_card.item.label }}</h3><p>{{ role_card.item.modules|length }} módulos disponibles</p></div><button class="button compact" type="submit">Guardar</button></div><div class="module-list">{% for module in role_card.item.modules %}<label class="permission-toggle"><input type="checkbox" name="modules" value="{{ module }}" {% if module in role_card.enabled_modules %}checked{% endif %}><span>{{ module }}</span><i></i></label>{% endfor %}</div></form>{% endfor %}</div>
+</section></main></div>{% endblock %}

@@ -1,0 +1,7 @@
+.plant-register-table{min-width:980px}
+.plant-register-table td{vertical-align:middle}
+.plant-register-table td:first-child{color:var(--blue);font-weight:700;white-space:nowrap}
+.plant-record-type{display:inline-flex;align-items:center;padding:5px 9px;border:1px solid transparent;border-radius:5px;font-size:10px;font-weight:700;white-space:nowrap}
+.plant-record-type.point-to-point{border-color:#cfddfa;background:#edf3ff;color:#285bb5}
+.plant-record-type.multipoint{border-color:#bfeaf2;background:#e3f7fb;color:#087990}
+.plant-record-distance{width:120px;border-bottom:1px dashed #d7deea}

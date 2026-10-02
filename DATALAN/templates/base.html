@@ -1,0 +1,20 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}DATALAN{% endblock %}</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/commercial-status-colors.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plant-register.css' %}">
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    {% include 'messages.html' %}
+    {% block content %}{% endblock %}
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    {% if editing_request %}{{ editing_request|json_script:'commercial-request-edit-data' }}{% endif %}
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Clientes | DATALAN{% endblock %}
+{% block content %}<div class="app">{% include 'sidebar.html' %}<main class="main">{% include 'navbar.html' %}<section class="content">
+<div class="heading"><div><p class="eyebrow">Directorio comercial</p><h1>Clientes</h1><p class="subtitle">Todos los clientes registrados, ordenados alfabeticamente.</p></div><span class="heading-total">{{ clients|length }} registrados</span></div>
+<section class="client-grid">{% for client in clients %}<article class="client-card"><div class="client-initial">{{ client.name|slice:':1'|upper }}</div><div><h2>{{ client.name }}</h2><p>{{ client.requests|length }} solicitud{{ client.requests|length|pluralize }} · Ultima actividad {{ client.last_request }}</p></div><span class="client-arrow">→</span></article>{% empty %}<div class="panel empty-state">Aun no hay clientes registrados.</div>{% endfor %}</section>
+</section></main></div>{% endblock %}

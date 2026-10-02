@@ -1,0 +1,5 @@
+.request-tab.tab-all{background:linear-gradient(135deg,var(--blue),var(--violet))}
+.request-tab.tab-process{background:linear-gradient(135deg,#22a6bd,#087990)}
+.status-pill.process{background:#e3f7fb;color:#087990}
+.status-pill.pending{background:#fff4d6;color:#956b00}
+.status-pill.observed{background:#f2eafd;color:#7040a8}
